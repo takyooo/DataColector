@@ -1,0 +1,24 @@
+
+= link_to 'sign out', destroy_user_session_path, method: :delete
+%br/
+%br/  
+%h1 Tokens
+%table#general-data
+  %thead
+    %tr
+      %th Token
+      %th Lokalizacja
+      %th
+      %th
+  %tbody    
+    - @tokens.each do |token|
+      %tr
+        %td= token.token_name
+        %td= token.location
+        %td= link_to 'Edit', edit_token_path(token)
+        %td= link_to 'Delete', token_path(token), method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'new', new_token_path
+%br/
+%br/
+= link_to 'Second table', devices_path, "data-no-turbolink" => true

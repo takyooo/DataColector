@@ -1,0 +1,26 @@
+%h1 Second table
+%br/
+%table#general-data
+  %thead
+    %tr
+      %th Data
+      %th Sensor
+      %th Wartość
+      %th Nazwa tokenu
+      %th Lokalizacja
+      %th Okno
+      %th 
+  %tbody
+    - @devices.each do |device|
+      %tr
+        %td= device.date
+        %td= device.sensor
+        %td= device.value
+        %td= device.token.token_name
+        %td= device.token.location
+        %td= device.window
+        %td= link_to 'Delete', device_path(device), method: :delete, data: { confirm: 'Are you sure?' }   
+%br/
+= link_to 'Tokens table', tokens_path, "data-no-turbolink" => true
+%br/
+

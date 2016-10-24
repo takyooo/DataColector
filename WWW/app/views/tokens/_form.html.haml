@@ -1,0 +1,9 @@
+= form_for @token do |f|
+  %br/
+  = f.label :token_name, 'Nazwa tokenu'
+  = f.text_field :token_name
+  %br/
+  = f.label :location, 'Lokalizacja'
+  = f.text_field :location
+  %br/
+  = f.submit 'Zapisz'
